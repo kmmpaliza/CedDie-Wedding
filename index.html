@@ -5,9 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cedric &amp; Khadie | Wedding Invitation</title>
 <meta name="description" content="An intimate wedding for selected people. 12 · 03 · 26, Villa Agave Tagaytay.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Mrs+Saint+Delafield&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap">
 <style>
+@font-face{
+  font-family:'Abramo';
+  src: url('fonts/Abramo%20Script.otf') format('opentype');
+  font-display: swap;
+}
+html{scroll-behavior:smooth}
 body{margin:0}
+section[id]{scroll-margin-top:64px}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);background:rgba(244,236,223,0.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .3s}
+.topbar.scrolled{border-bottom-color:rgba(73,55,33,0.25)}
+.topbar-inner{max-width:960px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:'Abramo','Snell Roundhand',cursive;font-size:30px;text-decoration:none;line-height:1}
+.menu{display:flex;gap:32px;list-style:none;margin:0;padding:0}
+.menu a{font-size:12px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;text-decoration:none;padding:6px 0;border-bottom:1px solid transparent;transition:border-color .2s}
+.menu a:hover,.menu a.active{border-bottom-color:#493721}
+.menu-toggle{display:none;background:none;border:0;padding:8px;margin-right:-8px;cursor:pointer;color:inherit}
+.menu-toggle span{display:block;width:22px;height:1.5px;background:currentColor;margin:5px 0;transition:transform .25s,opacity .25s}
+.topbar.open .menu-toggle span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.topbar.open .menu-toggle span:nth-child(2){opacity:0}
+.topbar.open .menu-toggle span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 a{color:inherit}
 .datel{display:none}
 @media (max-width: 760px){
@@ -16,14 +35,36 @@ a{color:inherit}
   .datel{display:block !important}
   .twocol{grid-template-columns: 1fr !important}
   .names{font-size: 84px !important}
+  .menu-toggle{display:block}
+  .menu{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:center;gap:0;background:#F4ECDF;border-bottom:1px solid transparent;max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .topbar.open .menu{max-height:320px;border-bottom-color:rgba(73,55,33,0.25)}
+  .menu li:first-child{margin-top:8px}
+  .menu li:last-child{margin-bottom:16px}
+  .menu a{display:inline-block;padding:14px 0;border-bottom:0}
+  .menu a.active{border-bottom:1px solid #493721;padding-bottom:4px;margin-bottom:10px}
 }
 </style>
 </head>
 <body>
 <div style="min-height: 100vh; background: #F4ECDF; color: #493721; font-family: 'Cormorant Garamond', Georgia, serif; overflow-x: hidden;">
 
+  <!-- TOP BAR -->
+  <nav class="topbar" id="topbar" aria-label="Sections">
+    <div class="topbar-inner">
+      <a class="brand" href="#home">C &amp; K</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+      <ul class="menu" id="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#entourage">Entourage</a></li>
+        <li><a href="#attire">Attire</a></li>
+        <li><a href="#reserve">RSVP</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <!-- HERO -->
-  <section style="display: flex; justify-content: center; padding: 64px 24px 0;">
+  <section id="home" style="display: flex; justify-content: center; padding: 120px 24px 0;">
     <div style="position: relative; width: 100%; max-width: 600px;">
       <div class="vt" style="position: absolute; left: -76px; top: 96px; writing-mode: vertical-rl; transform: rotate(180deg); font-size: 20px; font-weight: 700; letter-spacing: 0.5em; text-transform: uppercase;">Save the date</div>
       <div class="datev" style="position: absolute; right: -64px; top: 100px; display: flex; flex-direction: column; align-items: center; font-size: 30px; line-height: 1.15;">
@@ -31,26 +72,21 @@ a{color:inherit}
       </div>
       <div style="border: 1.5px solid #493721; border-bottom: none; border-radius: 300px 300px 0 0; padding: 120px 28px 0; display: flex; flex-direction: column; align-items: center; text-align: center;">
         <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">For the wedding of</div>
-        <div class="names" style="font-family: 'Mrs Saint Delafield', 'Snell Roundhand', cursive; font-size: 120px; line-height: 0.95; margin-top: 28px;">Cedric</div>
-        <div style="font-family: 'Mrs Saint Delafield', 'Snell Roundhand', cursive; font-size: 48px; line-height: 1; margin: -8px 0 -8px;">and</div>
-        <div class="names" style="font-family: 'Mrs Saint Delafield', 'Snell Roundhand', cursive; font-size: 120px; line-height: 0.95;">Khadie</div>
+        <div class="names" style="font-family: 'Abramo', 'Snell Roundhand', cursive; font-size: 120px; line-height: 0.95; margin-top: 28px;">Cedric</div>
+        <div style="font-family: 'Abramo', 'Snell Roundhand', cursive; font-size: 48px; line-height: 1; margin: -8px 0 -8px;">and</div>
+        <div class="names" style="font-family: 'Abramo', 'Snell Roundhand', cursive; font-size: 120px; line-height: 0.95;">Khadie</div>
         <div class="datel" style="font-size: 26px; letter-spacing: 0.2em; margin-top: 18px;">12 · 03 · 26</div>
         <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; margin-top: 44px;">Ceremony to commence at 4PM</div>
         <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; margin-top: 12px;">Villa Agave Tagaytay</div>
         <div style="font-size: 17px; font-style: italic; margin-top: 26px; max-width: 320px; line-height: 1.45;">An intimate wedding for selected people. You are important to us.</div>
-        <svg viewBox="0 0 800 230" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 540px; height: auto; margin-top: 44px;" aria-label="Line drawing of Mt. Fuji with the sun">
-          <circle cx="610" cy="74" r="34" fill="none" stroke="#493721" stroke-width="1.5"/>
-          <path d="M20 224 C140 218 240 160 332 104 L376 70 L404 64 L444 84 C560 148 690 210 780 224" fill="none" stroke="#493721" stroke-width="1.6" stroke-linecap="round"/>
-          <path d="M352 88 L372 104 L388 90 L404 108 L420 92 L444 110 L460 98" fill="none" stroke="#493721" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M110 170 H190 M130 182 H180 M650 150 H730 M670 162 H720" fill="none" stroke="#493721" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
-        </svg>
+        <img src="image/Mt%20Fuji.png" alt="Mt. Fuji with the sun" style="width: 100%; max-width: 540px; height: auto; margin-top: 44px; mix-blend-mode: multiply;">
       </div>
     </div>
   </section>
 
   <!-- TIMELINE -->
-  <section style="display: flex; flex-direction: column; align-items: center; padding: 96px 24px 24px;">
-    <div style="font-family: 'Mrs Saint Delafield', 'Snell Roundhand', cursive; font-size: 88px; line-height: 1;">Timeline</div>
+  <section id="timeline" style="display: flex; flex-direction: column; align-items: center; padding: 96px 24px 24px;">
+    <div style="font-family: 'Abramo', 'Snell Roundhand', cursive; font-size: 88px; line-height: 1;">Timeline</div>
     <div style="margin-top: 28px; width: 100%; max-width: 520px;">
       <div style="display: grid; grid-template-columns: 110px minmax(0, 1fr);">
         <div style="text-align: right; padding: 14px 24px 14px 0; border-right: 1.5px solid #493721; font-size: 15px; font-weight: 700; letter-spacing: 0.26em;">4PM</div>
@@ -67,9 +103,35 @@ a{color:inherit}
     </div>
   </section>
 
+
+  <!-- ENTOURAGE -->
+  <section id="entourage" style="display: flex; flex-direction: column; align-items: center; padding: 96px 24px 24px; text-align: center;">
+    <div style="font-family: 'Abramo', 'Snell Roundhand', cursive; font-size: 88px; line-height: 1;">Entourage</div>
+    <div class="twocol" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px; width: 100%; max-width: 640px; margin-top: 36px;">
+      <div style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+        <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 8px;">Groom's parents</div>
+        <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Mr. Reniel Mendoza</div>
+        <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Mrs. Geraldine Mendoza</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+        <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 8px;">Bride's parents</div>
+        <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Mr. Romeo Paliza</div>
+        <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Mrs. Marieta Paliza</div>
+      </div>
+    </div>
+    <div style="font-family: 'Abramo', 'Snell Roundhand', cursive; font-size: 64px; line-height: 1; margin-top: 72px;">Ring Bearer</div>
+    <div style="margin-top: 12px; font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Yui Mendoza</div>
+    <div style="font-family: 'Abramo', 'Snell Roundhand', cursive; font-size: 64px; line-height: 1; margin-top: 64px;">Principal Sponsors</div>
+    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+      <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Mr. &amp; Mrs. Full Name</div>
+      <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Mr. &amp; Mrs. Full Name</div>
+      <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Mr. &amp; Mrs. Full Name</div>
+    </div>
+  </section>
+
   <!-- OUTFIT AND THEME -->
-  <section style="display: flex; flex-direction: column; align-items: center; padding: 88px 24px 24px; text-align: center;">
-    <div style="font-family: 'Mrs Saint Delafield', 'Snell Roundhand', cursive; font-size: 88px; line-height: 1;">Outfit &amp; Theme</div>
+  <section id="attire" style="display: flex; flex-direction: column; align-items: center; padding: 88px 24px 24px; text-align: center;">
+    <div style="font-family: 'Abramo', 'Snell Roundhand', cursive; font-size: 88px; line-height: 1;">Outfit &amp; Theme</div>
     <div style="margin-top: 24px; font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Soft neutrals &amp; earth tones</div>
     <div style="display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap; justify-content: center;">
       <span style="display: block; width: 46px; height: 46px; border-radius: 50%; background: #EFE6D8; border: 1px solid #493721;"></span>
@@ -82,7 +144,7 @@ a{color:inherit}
       <div style="display: flex; flex-direction: column; align-items: center; gap: 14px; width: 200px;">
         <svg viewBox="0 0 40 50" width="56" height="70" xmlns="http://www.w3.org/2000/svg" aria-label="Dress icon"><path d="M14 0H16.5V9H23.5V0H26V10L24.5 22L36 46C28 49 12 49 4 46L15.5 22L14 10Z" fill="#493721"/></svg>
         <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Ladies</div>
-        <div style="font-size: 19px;">Midi or maxi dress</div>
+        <div style="font-size: 19px;">Semi-Formal Dress</div>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 14px; width: 200px;">
         <svg viewBox="0 0 50 48" width="72" height="69" xmlns="http://www.w3.org/2000/svg" aria-label="Long sleeve shirt icon"><path d="M18 2L25 8L32 2L42 6L49 34L42 36L37 16V46H13V16L8 36L1 34L8 6Z" fill="#493721"/></svg>
@@ -95,49 +157,35 @@ a{color:inherit}
 
   <!-- RESERVATION -->
   <section id="reserve" style="display: flex; flex-direction: column; align-items: center; padding: 96px 24px 24px; text-align: center;">
-    <div style="font-family: 'Mrs Saint Delafield', 'Snell Roundhand', cursive; font-size: 88px; line-height: 1;">Reserve your seat</div>
-    <svg viewBox="0 0 25 25" width="132" height="132" xmlns="http://www.w3.org/2000/svg" style="margin-top: 28px;" aria-label="Sample QR code for reservation"><path d="M0 0H7V1H0ZM8 0H10V1H8ZM11 0H12V1H11ZM13 0H15V1H13ZM16 0H17V1H16ZM18 0H25V1H18ZM0 1H1V2H0ZM6 1H7V2H6ZM8 1H12V2H8ZM13 1H15V2H13ZM18 1H19V2H18ZM24 1H25V2H24ZM0 2H1V3H0ZM2 2H5V3H2ZM6 2H7V3H6ZM9 2H10V3H9ZM11 2H12V3H11ZM13 2H17V3H13ZM18 2H19V3H18ZM20 2H23V3H20ZM24 2H25V3H24ZM0 3H1V4H0ZM2 3H5V4H2ZM6 3H7V4H6ZM9 3H10V4H9ZM12 3H13V4H12ZM14 3H17V4H14ZM18 3H19V4H18ZM20 3H23V4H20ZM24 3H25V4H24ZM0 4H1V5H0ZM2 4H5V5H2ZM6 4H7V5H6ZM9 4H11V5H9ZM12 4H14V5H12ZM16 4H17V5H16ZM18 4H19V5H18ZM20 4H23V5H20ZM24 4H25V5H24ZM0 5H1V6H0ZM6 5H7V6H6ZM12 5H13V6H12ZM14 5H16V6H14ZM18 5H19V6H18ZM24 5H25V6H24ZM0 6H7V7H0ZM8 6H9V7H8ZM10 6H11V7H10ZM12 6H13V7H12ZM14 6H15V7H14ZM16 6H17V7H16ZM18 6H25V7H18ZM8 7H9V8H8ZM10 7H11V8H10ZM15 7H16V8H15ZM2 8H3V9H2ZM5 8H7V9H5ZM8 8H9V9H8ZM13 8H15V9H13ZM16 8H21V9H16ZM22 8H25V9H22ZM1 9H3V10H1ZM8 9H11V10H8ZM13 9H17V10H13ZM19 9H23V10H19ZM4 10H5V11H4ZM6 10H7V11H6ZM10 10H13V11H10ZM14 10H25V11H14ZM2 11H6V12H2ZM7 11H8V12H7ZM10 11H11V12H10ZM12 11H16V12H12ZM17 11H19V12H17ZM21 11H22V12H21ZM23 11H24V12H23ZM3 12H7V13H3ZM10 12H12V13H10ZM18 12H19V13H18ZM20 12H25V13H20ZM2 13H3V14H2ZM7 13H12V14H7ZM15 13H16V14H15ZM18 13H19V14H18ZM23 13H25V14H23ZM1 14H2V15H1ZM4 14H7V15H4ZM9 14H12V15H9ZM14 14H15V15H14ZM18 14H19V15H18ZM20 14H22V15H20ZM1 15H2V16H1ZM4 15H6V16H4ZM7 15H9V16H7ZM10 15H13V16H10ZM14 15H16V16H14ZM18 15H19V16H18ZM23 15H25V16H23ZM0 16H2V17H0ZM3 16H5V17H3ZM6 16H7V17H6ZM8 16H9V17H8ZM12 16H13V17H12ZM14 16H21V17H14ZM9 17H10V18H9ZM14 17H15V18H14ZM16 17H17V18H16ZM20 17H22V18H20ZM0 18H7V19H0ZM9 18H10V19H9ZM13 18H17V19H13ZM18 18H19V19H18ZM20 18H24V19H20ZM0 19H1V20H0ZM6 19H7V20H6ZM10 19H11V20H10ZM13 19H14V20H13ZM16 19H17V20H16ZM20 19H22V20H20ZM23 19H24V20H23ZM0 20H1V21H0ZM2 20H5V21H2ZM6 20H7V21H6ZM10 20H12V21H10ZM13 20H21V21H13ZM22 20H23V21H22ZM24 20H25V21H24ZM0 21H1V22H0ZM2 21H5V22H2ZM6 21H7V22H6ZM8 21H10V22H8ZM12 21H13V22H12ZM16 21H19V22H16ZM20 21H23V22H20ZM0 22H1V23H0ZM2 22H5V23H2ZM6 22H7V23H6ZM8 22H10V23H8ZM13 22H15V23H13ZM16 22H18V23H16ZM21 22H22V23H21ZM23 22H24V23H23ZM0 23H1V24H0ZM6 23H7V24H6ZM8 23H10V24H8ZM12 23H14V24H12ZM15 23H22V24H15ZM23 23H24V24H23ZM0 24H7V25H0ZM8 24H13V25H8ZM15 24H17V25H15ZM18 24H19V25H18ZM20 24H21V25H20ZM23 24H24V25H23Z" fill="#493721"/></svg>
+    <div style="font-family: 'Abramo', 'Snell Roundhand', cursive; font-size: 88px; line-height: 1;">Reserve your seat</div>
+    <img src="image/qr_brown.png" alt="QR code to reserve your seat" width="132" height="132" style="margin-top: 28px;">
     <div style="margin-top: 14px; font-size: 13px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Scan to reserve</div>
-    <a href="#reserve" style="display: inline-block; margin-top: 28px; padding: 16px 40px; border: 1.5px solid #493721; border-radius: 999px; text-decoration: none; font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; min-height: 20px;">Reserve now</a>
-  </section>
-
-  <!-- ENTOURAGE -->
-  <section style="display: flex; flex-direction: column; align-items: center; padding: 96px 24px 24px; text-align: center;">
-    <div style="font-family: 'Mrs Saint Delafield', 'Snell Roundhand', cursive; font-size: 88px; line-height: 1;">Entourage</div>
-    <div class="twocol" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px; width: 100%; max-width: 640px; margin-top: 36px;">
-      <div style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
-        <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 8px;">Groom's parents</div>
-        <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Mr. Full Name</div>
-        <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Mrs. Full Name</div>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
-        <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 8px;">Bride's parents</div>
-        <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Mr. Full Name</div>
-        <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Mrs. Full Name</div>
-      </div>
-    </div>
-    <div style="font-family: 'Mrs Saint Delafield', 'Snell Roundhand', cursive; font-size: 64px; line-height: 1; margin-top: 72px;">Ring Bearer</div>
-    <div style="margin-top: 12px; font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Master Full Name</div>
-    <div style="font-family: 'Mrs Saint Delafield', 'Snell Roundhand', cursive; font-size: 64px; line-height: 1; margin-top: 64px;">Principal Sponsors</div>
-    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
-      <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Mr. &amp; Mrs. Full Name</div>
-      <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Mr. &amp; Mrs. Full Name</div>
-      <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Mr. &amp; Mrs. Full Name</div>
-    </div>
+    <a href="https://forms.gle/BH3CdydzKwSxqksv5" target="_blank" rel="noopener" style="display: inline-block; margin-top: 28px; padding: 16px 40px; border: 1.5px solid #493721; border-radius: 999px; text-decoration: none; font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; min-height: 20px;">Reserve now</a>
   </section>
 
   <!-- FOOTER -->
   <section style="display: flex; flex-direction: column; align-items: center; padding: 88px 24px 56px; text-align: center;">
-    <svg viewBox="0 0 800 230" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 520px; height: auto;" aria-label="Line drawing of Mt. Fuji with the sun">
-      <circle cx="610" cy="74" r="34" fill="none" stroke="#493721" stroke-width="1.5"/>
-      <path d="M20 224 C140 218 240 160 332 104 L376 70 L404 64 L444 84 C560 148 690 210 780 224" fill="none" stroke="#493721" stroke-width="1.6" stroke-linecap="round"/>
-      <path d="M352 88 L372 104 L388 90 L404 108 L420 92 L444 110 L460 98" fill="none" stroke="#493721" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M110 170 H190 M130 182 H180 M650 150 H730 M670 162 H720" fill="none" stroke="#493721" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
-    </svg>
+    <img src="image/Mt%20Fuji.png" alt="Mt. Fuji with the sun" style="width: 100%; max-width: 520px; height: auto; mix-blend-mode: multiply;">
     <div style="margin-top: 28px; font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Nothing fancy.. just love &amp; fun</div>
     <div style="margin-top: 12px; font-size: 14px; letter-spacing: 0.24em; text-transform: uppercase;">12 · 03 · 26 · Villa Agave Tagaytay</div>
   </section>
 
 </div>
+<script>
+(function(){
+  var bar=document.getElementById('topbar'),toggle=document.getElementById('menuToggle'),links=bar.querySelectorAll('.menu a');
+  function setOpen(o){bar.classList.toggle('open',o);toggle.setAttribute('aria-expanded',o);toggle.setAttribute('aria-label',o?'Close menu':'Open menu')}
+  toggle.addEventListener('click',function(){setOpen(!bar.classList.contains('open'))});
+  links.forEach(function(a){a.addEventListener('click',function(){setOpen(false)})});
+  function onScroll(){bar.classList.toggle('scrolled',window.scrollY>8)}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id)})}});
+    },{rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('section[id]').forEach(function(s){obs.observe(s)});
+  }
+})();
+</script>
 </body>
 </html>

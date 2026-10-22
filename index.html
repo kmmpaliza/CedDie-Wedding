@@ -29,7 +29,23 @@ section[id]{scroll-margin-top:64px}
 .topbar.open .menu-toggle span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 a{color:inherit}
 .datel{display:none}
+.pill-btn{display:inline-block;margin-top:40px;padding:14px 32px;border:1.5px solid #493721;border-radius:999px;background:none;color:inherit;font:inherit;font-size:13px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s}
+.pill-btn:hover{background:#493721;color:#F4ECDF}
+.inspo{width:min(920px,calc(100vw - 32px));max-height:calc(100vh - 48px);padding:0;border:1.5px solid #493721;border-radius:12px;background:#F4ECDF;color:#493721;font-family:'Cormorant Garamond',Georgia,serif}
+.inspo::backdrop{background:rgba(46,34,19,0.55)}
+.inspo-body{padding:40px 32px 32px;text-align:center}
+.inspo-close{position:absolute;top:10px;right:12px;width:40px;height:40px;border:0;background:none;color:inherit;font-size:28px;line-height:1;cursor:pointer}
+.inspo-swipe{display:none;margin-top:8px;font-size:14px;font-style:italic}
+.inspo-close:focus{outline:none}
+.inspo-close:focus-visible{outline:1.5px solid #493721;border-radius:50%}
+.inspo-row{margin-top:20px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.inspo-row img{display:block;width:100%;max-width:735px;height:auto;margin:0 auto}
+.inspo-label{margin-top:36px;font-size:13px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase}
+.inspo-title{font-family:'Abramo','Snell Roundhand',cursive;font-size:56px;line-height:1.1;margin-top:14px}
 @media (max-width: 760px){
+  .inspo-body{padding:36px 16px 24px}
+  .inspo-row img{width:600px;max-width:none}
+  .inspo-swipe{display:block !important}
   .vt{display:none !important}
   .datev{display:none !important}
   .datel{display:block !important}
@@ -99,9 +115,9 @@ a{color:inherit}
         <div style="text-align: right; padding: 14px 24px 14px 0; border-right: 1.5px solid #493721; font-size: 15px; font-weight: 700; letter-spacing: 0.26em;">6PM</div>
         <div style="padding: 14px 0 14px 24px; font-size: 15px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase;">Wedding dinner</div>
         <div style="text-align: right; padding: 14px 24px 14px 0; border-right: 1.5px solid #493721; font-size: 15px; font-weight: 700; letter-spacing: 0.26em;">8PM</div>
-        <div style="padding: 14px 0 14px 24px; font-size: 15px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase;">Evening games &amp; lounge<div style="font-size: 15px; font-weight: 400; font-style: italic; letter-spacing: 0; text-transform: none; margin-top: 4px;">Join a game or simply relax. Game slots are limited.</div></div>
-        <div style="text-align: right; padding: 14px 24px 14px 0; border-right: 1.5px solid #493721; font-size: 15px; font-weight: 700; letter-spacing: 0.26em;">10PM</div>
-        <div style="padding: 14px 0 14px 24px; font-size: 15px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase;">Evening party<div style="font-size: 15px; font-weight: 400; font-style: italic; letter-spacing: 0; text-transform: none; margin-top: 4px;">Everyone comes together</div></div>
+        <div style="padding: 14px 0 14px 24px; font-size: 15px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase;">Evening party<div style="font-size: 15px; font-weight: 400; font-style: italic; letter-spacing: 0; text-transform: none; margin-top: 4px;">Join the fun or kick back and relax. Game slots are limited.</div></div>
+        <!-- <div style="text-align: right; padding: 14px 24px 14px 0; border-right: 1.5px solid #493721; font-size: 15px; font-weight: 700; letter-spacing: 0.26em;">10PM</div>
+        <div style="padding: 14px 0 14px 24px; font-size: 15px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase;">Evening party<div style="font-size: 15px; font-weight: 400; font-style: italic; letter-spacing: 0; text-transform: none; margin-top: 4px;">Everyone comes together</div></div> -->
       </div>
     </div>
   </section>
@@ -125,9 +141,15 @@ a{color:inherit}
     <div style="font-size: 17px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: #2E2213; -webkit-text-stroke: 0.5px currentColor; margin-top: 56px;">Ring bearer</div>
     <div style="margin-top: 12px; font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Yui Mendoza</div>
     <div style="font-size: 17px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: #2E2213; -webkit-text-stroke: 0.5px currentColor; margin-top: 48px;">Our witnesses</div>
-    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
-      <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">[Witness Name]</div>
-      <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">[Witness Name]</div>
+    <div class="twocol" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 56px; width: 100%; max-width: 640px; margin-top: 16px;">
+      <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Norlanda Rodriguez</div>
+      <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Ramir Rodriguez</div>
+      <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Maricel Morata</div>
+      <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Rollie Morata</div>
+      <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Carlo Mendoza</div>
+      <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Mila Mendoza</div>
+      <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Ronald Acaba</div>
+      <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">Hyrene Acaba</div>
     </div>
   </section>
 
@@ -147,17 +169,43 @@ a{color:inherit}
     </div>
     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 72px; margin-top: 56px;">
       <div style="display: flex; flex-direction: column; align-items: center; gap: 14px; width: 200px;">
-        <svg viewBox="0 0 40 50" width="56" height="70" xmlns="http://www.w3.org/2000/svg" aria-label="Dress icon"><path d="M14 0H16.5V9H23.5V0H26V10L24.5 22L36 46C28 49 12 49 4 46L15.5 22L14 10Z" fill="#493721"/></svg>
+        <svg viewBox="0 0 40 50" width="56" height="70" xmlns="http://www.w3.org/2000/svg" aria-label="Midi dress icon"><path d="M15 0H17V6Q20 8.5 23 6V0H25V9Q25.5 15 24 19H16Q14.5 15 15 9Z" fill="#493721"/><path d="M16 20.5H24L35 45Q31 47.5 27.5 45.5Q24 48 20 45.5Q16 48 12.5 45.5Q9 47.5 5 45Z" fill="#493721"/></svg>
         <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Ladies</div>
         <div style="font-size: 19px;">Semi-formal dress</div>
+        <div style="font-size: 16px; font-style: italic; line-height: 1.4;">A flowy midi or maxi dress, or a skirt and blouse</div>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 14px; width: 200px;">
-        <svg viewBox="0 0 50 48" width="72" height="69" xmlns="http://www.w3.org/2000/svg" aria-label="Long sleeve shirt icon"><path d="M18 2L25 8L32 2L42 6L49 34L42 36L37 16V46H13V16L8 36L1 34L8 6Z" fill="#493721"/></svg>
+        <svg viewBox="0 0 50 48" width="72" height="69" xmlns="http://www.w3.org/2000/svg" aria-label="Casual blazer with open collar icon"><path d="M17 2L8 5L1 36L8 38L13 18V46H37V18L42 38L49 36L42 5L33 2Z" fill="#493721"/><path d="M19 2L25 25L31 2Z" fill="#F4ECDF"/><path d="M19.5 2L22 9L25 5ZM30.5 2L28 9L25 5Z" fill="#493721"/><path d="M18.5 3L16 12L21 16M31.5 3L34 12L29 16" fill="none" stroke="#F4ECDF" stroke-width="1"/><circle cx="25" cy="31" r="1.2" fill="#F4ECDF"/></svg>
         <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Gentlemen</div>
         <div style="font-size: 19px;">Neutral long sleeves</div>
+        <div style="font-size: 16px; font-style: italic; line-height: 1.4;">Add a light blazer if you like. No tie needed</div>
       </div>
     </div>
-    <div style="margin-top: 56px; border: 1.5px solid #493721; border-radius: 999px; padding: 16px 32px; font-size: 19px; font-weight: 700; max-width: 520px; line-height: 1.35;">Planning to play? Bring sportswear and non-marking shoes. It is entirely optional.</div>
+    <button type="button" class="pill-btn" onclick="document.getElementById('inspo').showModal()">View sample outfits</button>
+    <dialog id="inspo" class="inspo" aria-label="Sample outfits">
+      <button type="button" class="inspo-close" aria-label="Close" onclick="this.closest('dialog').close()">&times;</button>
+      <div class="inspo-body">
+        <div style="font-family: 'Abramo', 'Snell Roundhand', cursive; font-size: 64px; line-height: 1;">Style Inspo</div>
+        <div style="margin-top: 16px; font-size: 13px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Soft neutrals &amp; earth tones</div>
+        <div class="inspo-label">Style inspo for the</div>
+        <div class="inspo-title">Ladies</div>
+        <div class="inspo-row">
+          <img src="image/attire/inspo-ladies.webp" alt="Six neutral-toned outfits for ladies: wrap jumpsuit, strapless midi dress, off-shoulder top with wide-leg pants, puff-sleeve midi dress, linen blazer set, and satin slip dress" loading="lazy">
+        </div>
+        <div class="inspo-swipe">Swipe to see more</div>
+        <div class="inspo-label" style="margin-top: 48px;">Style inspo for the</div>
+        <div class="inspo-title">Gentlemen</div>
+        <div class="inspo-row">
+          <img src="image/attire/inspo-gentlemen.webp" alt="Six neutral-toned outfits for gentlemen: brown suit, linen shirt with white trousers, taupe suit, short-sleeve shirt with chinos, overshirt set, and brown blazer with beige trousers" loading="lazy">
+        </div>
+        <div class="inspo-swipe">Swipe to see more</div>
+        <div style="margin-top: 32px; font-size: 17px; font-style: italic; line-height: 1.45;">Not so formal, just polished. Any outfit in our palette works.</div>
+      </div>
+    </dialog>
+    <div style="margin-top: 48px; max-width: 520px;">
+      <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Planning to play?</div>
+      <div style="margin-top: 10px; font-size: 18px; font-style: italic; line-height: 1.45;">Bring sportswear and non-marking shoes. It is entirely optional.</div>
+    </div>
   </section>
 
   <!-- EVENING GAMES -->
@@ -165,23 +213,28 @@ a{color:inherit}
     <div style="font-family: 'Abramo', 'Snell Roundhand', cursive; font-size: 88px; line-height: 1;">Evening Games</div>
     <div style="font-size: 17px; font-style: italic; margin-top: 24px; max-width: 440px; line-height: 1.45;">Short, friendly games at 8PM, with a cash prize for the winners. Slots are limited, so pick your game when you reply.</div>
     <div class="threecol" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; width: 100%; max-width: 760px; margin-top: 40px;">
-      <div style="border-top: 1.5px solid #493721; padding-top: 24px; display: flex; flex-direction: column; gap: 8px; align-items: center;">
+      <!-- <div style="border-top: 1.5px solid #493721; padding-top: 24px; display: flex; flex-direction: column; gap: 8px; align-items: center;">
         <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Basketball</div>
         <div style="font-size: 18px;">3v3, first to 5 points</div>
         <div style="font-size: 15px;">For the gentlemen</div>
-      </div>
+      </div> -->
       <div style="border-top: 1.5px solid #493721; padding-top: 24px; display: flex; flex-direction: column; gap: 8px; align-items: center;">
-        <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Free throws</div>
+        <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Free throw competition</div>
         <div style="font-size: 18px;">5 shots each, then a shoot-off</div>
         <div style="font-size: 15px;">For the ladies</div>
       </div>
       <div style="border-top: 1.5px solid #493721; padding-top: 24px; display: flex; flex-direction: column; gap: 8px; align-items: center;">
+        <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">3-point shootout</div>
+        <div style="font-size: 18px;">5 shots each, then a shoot-off</div>
+        <div style="font-size: 15px;">For the gentlemen</div>
+      </div>
+      <div style="border-top: 1.5px solid #493721; padding-top: 24px; display: flex; flex-direction: column; gap: 8px; align-items: center;">
         <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Pickleball</div>
-        <div style="font-size: 18px;">Doubles, one game to 7</div>
+        <div style="font-size: 18px;">Doubles, one game to 5</div>
         <div style="font-size: 15px;">For everyone, in pairs</div>
       </div>
     </div>
-    <div style="font-size: 16px; margin-top: 32px; max-width: 640px; line-height: 1.45;">Games are confirmed after the RSVP deadline, depending on sign-ups. Prefer to just relax? The lounge and fire pit are yours.</div>
+    <div style="font-size: 16px; margin-top: 32px; max-width: 640px; line-height: 1.45;">Games are confirmed after the RSVP deadline, depending on sign-ups. Prefer to just relax? The lounge and pool are yours.</div>
   </section>
 
   <!-- GOOD TO KNOW -->
@@ -191,6 +244,7 @@ a{color:inherit}
       <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
         <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Getting there</div>
         <div style="font-size: 18px; line-height: 1.45;">It is a Thursday, and December traffic around Cavite and Tagaytay can be heavy. Please leave early.</div>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Villa+Agave+Luksuhin-Sulsugin+Road+Alfonso+Cavite" target="_blank" rel="noopener" style="margin-top: 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid #493721; padding-bottom: 2px;">Get directions</a>
       </div>
       <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
         <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Parking</div>
@@ -198,7 +252,8 @@ a{color:inherit}
       </div>
       <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
         <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Our guests</div>
-        <div style="font-size: 18px; line-height: 1.45;">This invitation is for the guest(s) named only. We are keeping the day small and close.</div>
+        <div style="font-size: 18px; line-height: 1.45;">We are keeping the day small and close, so seats are limited. Please RSVP to save your place.</div>
+        <a href="https://forms.gle/BH3CdydzKwSxqksv5" target="_blank" rel="noopener" style="margin-top: 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid #493721; padding-bottom: 2px;">RSVP here</a>
       </div>
        <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
         <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Pool</div>
@@ -206,10 +261,10 @@ a{color:inherit}
       </div>
       <div style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 10px; align-items: center;">
         <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Gifts</div>
-        <div style="font-size: 18px; line-height: 1.45;">Your presence is our gift. Nothing more is needed.</div>
+        <div style="font-size: 18px; line-height: 1.45;">Your presence is the greatest gift. But if you wish to bless us further, a monetary gift would mean so much as we start our family together.</div>
       </div>
     </div>
-    <div style="font-size: 18px; margin-top: 40px;">Questions? Khadie Paliza · 0956 709 7686</div>
+    <div style="font-size: 18px; margin-top: 40px;">Questions? Khadie Paliza · Cedric Mendoza</div>
   </section>
 
   <!-- RESERVATION -->
@@ -232,6 +287,7 @@ a{color:inherit}
 
 </div>
 <script>
+document.getElementById('inspo').addEventListener('click',function(e){if(e.target===this)this.close()});
 (function(){
   var bar=document.getElementById('topbar'),toggle=document.getElementById('menuToggle'),links=bar.querySelectorAll('.menu a');
   function setOpen(o){bar.classList.toggle('open',o);toggle.setAttribute('aria-expanded',o);toggle.setAttribute('aria-label',o?'Close menu':'Open menu')}

@@ -183,28 +183,16 @@ a{color:inherit}
         <div style="font-size: 16px; font-style: italic; line-height: 1.4;">Add a light blazer if you like. No tie needed</div>
       </div>
     </div>
-    <button type="button" class="pill-btn" onclick="document.getElementById('inspo').showModal()">View sample outfits</button>
-    <dialog id="inspo" class="inspo" aria-label="Sample outfits">
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 40px;">
+      <button type="button" class="pill-btn" style="margin-top: 0;" onclick="document.getElementById('inspo').showModal()">Guest outfits</button>
+      <button type="button" class="pill-btn" style="margin-top: 0;" onclick="document.getElementById('inspo-sponsors').showModal()">Principal sponsors</button>
+    </div>
+    <dialog id="inspo" class="inspo" aria-label="Sample outfits for guests">
       <button type="button" class="inspo-close" aria-label="Close" onclick="this.closest('dialog').close()">&times;</button>
       <div class="inspo-body">
         <div style="font-family: 'Abramo', 'Snell Roundhand', cursive; font-size: 64px; line-height: 1;">Style Inspo</div>
         <div style="margin-top: 16px; font-size: 13px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Soft neutrals &amp; earth tones</div>
         <div class="inspo-label">Style inspo for the</div>
-        <div class="inspo-title">Principal Sponsors</div>
-        <div style="margin-top: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Elegant &middot; Simple &middot; Classic</div>
-        <div class="inspo-label" style="margin-top: 32px;">Ladies</div>
-        <div style="margin-top: 10px; font-size: 17px; font-style: italic; line-height: 1.45;">Long gown in shades of champagne gold to taupe.</div>
-        <div class="inspo-row">
-          <img src="image/attire/sponsors-ladies-gowns.png" alt="Six champagne-toned floor-length gowns for principal sponsors: pleated sheer-sleeve gown, beaded V-neck gown, lace cap-sleeve gown, satin flutter-sleeve gown with ruffle, sequined mermaid gown, and off-shoulder satin gown with train" loading="lazy">
-        </div>
-        <div class="inspo-swipe">Swipe to see more</div>
-        <div class="inspo-label" style="margin-top: 36px;">Gentlemen</div>
-        <div style="margin-top: 24px; font-size: 17px; font-style: italic; line-height: 1.45;">A suit in our earth tones.</div>
-        <div class="inspo-row">
-          <img src="image/attire/sponsors-gentlemen-suits-3.png" alt="Five suits in brown, camel, chocolate, espresso and black" loading="lazy" style="max-width: 503px;">
-        </div>
-        <div class="inspo-swipe">Swipe to see more</div>
-        <div class="inspo-label" style="margin-top: 48px;">Style inspo for the</div>
         <div class="inspo-title">Ladies</div>
         <div class="inspo-row">
           <img src="image/attire/inspo-ladies.webp" alt="Six neutral-toned outfits for ladies: wrap jumpsuit, strapless midi dress, off-shoulder top with wide-leg pants, puff-sleeve midi dress, linen blazer set, and satin slip dress" loading="lazy">
@@ -213,10 +201,29 @@ a{color:inherit}
         <div class="inspo-label" style="margin-top: 48px;">Style inspo for the</div>
         <div class="inspo-title">Gentlemen</div>
         <div class="inspo-row">
-          <img src="image/attire/inspo-gentlemen.webp" alt="Six neutral-toned outfits for gentlemen: brown suit, linen shirt with white trousers, taupe suit, short-sleeve shirt with chinos, overshirt set, and brown blazer with beige trousers" loading="lazy">
+          <img src="image/attire/inspo-gentlemen.png" alt="Four neutral-toned outfits for gentlemen: linen shirt with white trousers, taupe suit, short-sleeve shirt with chinos, and overshirt set" loading="lazy" style="max-width: 496px;">
         </div>
         <div class="inspo-swipe">Swipe to see more</div>
-        <div style="margin-top: 32px; font-size: 17px; font-style: italic; line-height: 1.45;">Guests: not so formal, just polished.<br>Principal sponsors: formal gowns in champagne and neutral tones.</div>
+        <div style="margin-top: 32px; font-size: 17px; font-style: italic; line-height: 1.45;">Not so formal, just polished. Any outfit in our palette works.</div>
+      </div>
+    </dialog>
+    <dialog id="inspo-sponsors" class="inspo" aria-label="Attire for principal sponsors">
+      <button type="button" class="inspo-close" aria-label="Close" onclick="this.closest('dialog').close()">&times;</button>
+      <div class="inspo-body">
+        <div style="font-family: 'Abramo', 'Snell Roundhand', cursive; font-size: 64px; line-height: 1;">Principal Sponsors</div>
+        <div style="margin-top: 16px; font-size: 13px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">Elegant &middot; Simple &middot; Classic</div>
+        <div class="inspo-label" style="margin-top: 32px;">Ladies</div>
+        <div style="margin-top: 10px; font-size: 17px; font-style: italic; line-height: 1.45;">Long gown in shades of champagne gold to taupe.</div>
+        <div class="inspo-row">
+          <img src="image/attire/sponsors-ladies-gowns.png" alt="Six champagne-toned floor-length gowns for principal sponsors: pleated sheer-sleeve gown, beaded V-neck gown, lace cap-sleeve gown, satin flutter-sleeve gown with ruffle, sequined mermaid gown, and off-shoulder satin gown with train" loading="lazy">
+        </div>
+        <div class="inspo-swipe">Swipe to see more</div>
+        <div class="inspo-label" style="margin-top: 36px;">Gentlemen</div>
+        <div style="margin-top: 10px; font-size: 17px; font-style: italic; line-height: 1.45;">A suit in our earth tones.</div>
+        <div class="inspo-row">
+          <img src="image/attire/sponsors-gentlemen-suits-3.png" alt="Five suits in brown, camel, chocolate, espresso and black" loading="lazy" style="max-width: 503px;">
+        </div>
+        <div class="inspo-swipe">Swipe to see more</div>
       </div>
     </dialog>
     <div style="margin-top: 48px; max-width: 520px;">
@@ -307,7 +314,7 @@ a{color:inherit}
 
 </div>
 <script>
-document.getElementById('inspo').addEventListener('click',function(e){if(e.target===this)this.close()});
+document.querySelectorAll('.inspo').forEach(function(d){d.addEventListener('click',function(e){if(e.target===d)d.close()})});
 (function(){
   var bar=document.getElementById('topbar'),toggle=document.getElementById('menuToggle'),links=bar.querySelectorAll('.menu a');
   function setOpen(o){bar.classList.toggle('open',o);toggle.setAttribute('aria-expanded',o);toggle.setAttribute('aria-label',o?'Close menu':'Open menu')}
